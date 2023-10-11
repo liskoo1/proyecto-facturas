@@ -7,7 +7,7 @@ def delete_suplier(cif, proveedor):
     import suplier
     try:
         # Connect with data base
-        connect =  mysql.connector.connect(user = "root",password = "ktmexc200",host = "localhost", database = "tienda")
+        connect =  mysql.connector.connect(user = "root",password = "",host = "localhost", database = "tienda")
         #create cursor
         cursor = connect.cursor()
         '''Delete one suplier'''
