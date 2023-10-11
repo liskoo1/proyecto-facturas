@@ -143,6 +143,7 @@ def get_iva(img_re,lista_articulos, x1:int, y1:int, x2:int, y2:int):
     return  iva
     
 def mostrar_tablas(articulos: list, iva: list, unidades: list, precio: list,precio_total: list):
+    ''' Transform the datas in a dataframe'''
     data = {
         "Descripcion":articulos,
         "iva": iva,

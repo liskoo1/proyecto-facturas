@@ -16,7 +16,6 @@ class interface_suplier:
         nombre_s.insert(0,"")
         nombre_s.grid(row=1, column=1)
         if name_buttom == "CREAR":
-    
             Label(new_window, text="CIF: ", anchor=W).grid(row=2, column=0)
             cif_s = Entry(new_window,width=50)
             cif_s.insert(0,"")
@@ -188,13 +187,10 @@ class interface_suplier:
                     x1_unidades,y1_unidades,x2_unidades,y2_unidades]
         #if there is some empty field create a text
         [Label(new_window,text="Faltan datos por rellenar").grid(row=28,columnspan=2) for campo in lista_campos if campo == ""]
-        #try:
         #Insert data
-        
         db = Db()
         cif_db = db.list_cif(cif_s)
-        #print("cif db:",cif_db[0])
-        #print("cif_s", cif_s)
+
         try:
             if not cif_db[0] == cif_s:
                 db.insert_tamplate_description(x1_descrip, y1_descrip, x2_descrip, y2_descrip)
@@ -244,33 +240,26 @@ class interface_suplier:
                             ):
         '''Modify some error of data in the data of suplier '''
 
-
-        db = Db()
         data_of_modify = [nombre_s,cif_s,categoria_s,direccion_s, telefono_s, email_s,
                             x1_descrip, y1_descrip, x2_descrip, y2_descrip,
                             x1_iva,y1_iva,x2_iva,y2_iva,
                             x1_totales,y1_totales,x2_totales,y2_totales,
                             x1_precios,y1_precios,x2_precios,y2_precios,
                             x1_unidades,y1_unidades,x2_unidades,y2_unidades]
-        print("print modifuy",data_of_modify)
+        
+        db = Db()
         data = db.obtener_datos_plantilla(cif)
-        print("data: ",data)
+
         for i in range(len(data_of_modify)):
             if data_of_modify[i] == "":
                 data_of_modify[i] = data[i]
-
-
-        print("data ya modificada: ",data_of_modify)
-        
+    
         db.update_data(cif, data_of_modify)
         new_window.destroy()
         
         
-
-        
-        
     def show_data(image, lista_plantillas: list):
-        ''' Show data extracted of document'''
+        ''' Show data extracted of the document'''
         img = read_and_resize(image)
         lista_articulos = get_descripcion(img,lista_plantillas[0],lista_plantillas[1],lista_plantillas[2],lista_plantillas[3])
         iva = get_iva(img,lista_articulos,lista_plantillas[4],lista_plantillas[5],lista_plantillas[6],lista_plantillas[7])
@@ -284,6 +273,7 @@ class interface_suplier:
         return df
 
     def proveedores_in_suplier(self, proveedor):
+        '''create a new buttons and label in the label_frame: preveedor'''
         import interface
         data = Db().show_all_suplier() 
         cif = StringVar()
@@ -304,13 +294,13 @@ class interface_suplier:
 
     def limpiar_labelframe(self, label, last = False):
         '''Close and Open the app for update label frame proveedores'''
-        print(last)
-        print(label)
+
         wind = []
+        # if there are more of 5 labels and button in the window select_buttom we clean the last button
         if last == True:
             for widget in label.winfo_children():
                 wind.append(widget)
-            print(wind)
+
             if len(wind) >= 5:
                 wind[-1].destroy()
             else:

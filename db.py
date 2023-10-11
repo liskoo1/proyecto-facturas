@@ -89,6 +89,7 @@ class Db:
 
 
     def take_id_last_template(self):
+        '''extract last id in database'''
         self.cursor.execute('SELECT id_plantilla_desc FROM plantilla_descripcion;')
         for dato in self.cursor:
             data = dato
@@ -106,7 +107,7 @@ class Db:
         return lista
     
     def update_data(self, cif ,list_data):
-
+        '''Execute all instruction by modify the data of suplier in data base '''
 
         self.cursor.execute(f'SELECT id_plantillas FROM proveedores WHERE cif = "{cif}";')
 
@@ -115,7 +116,6 @@ class Db:
         print(id_plantilla[0])
            
         try:
-            '''Execute all instruction by modify the data of suplier in data base '''
             #DATOS
             if list_data[0]:
                 self.cursor.execute(f'UPDATE proveedores SET nombre = "{list_data[0]}" WHERE cif = "{list_data[1]}";')
@@ -203,6 +203,7 @@ class Db:
                     messagebox.showinfo("Info", "RECUERDA!! : El campo de telefono y los campos de los ejes X e Y deben de ser numeros ")
             
     def modify_article(self,data_text,label):
+        ''' get text in the data_text to manipulate data and update the article'''
         import suplier
         descipcion = data_text.get("1.0",tk.END)
         lista_item = descipcion.split("\n")
@@ -279,6 +280,7 @@ class Db:
         data_text.delete("1.0",tk.END)
         data_text.insert("1.0","\n\n\n\n\n\n\n\n\n\n\n                    STOCK ACTIALIZADO CORRECTAMENTE!!!           ")
         suplier.interface_suplier().limpiar_labelframe(label, last=True)
+
     def list_cif(self, cif):
         ''' create a list of all cif in data base'''
 
