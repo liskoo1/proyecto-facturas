@@ -76,6 +76,7 @@ wheel                  0.38.4
 
 
 Uso: 
+DATO IMPORTANTE: cuando se cojan los ejes x e y la imagen tiene que estar redimensionada a 1500 x 2150
 1 Abre el archibo db.py y delete.py e introduce o modifica los datos para conectarte a tu base de datos.
 2 Ejecuta la aplicación con python main.py.
 3 Escanea o carga una imagen de factura.
