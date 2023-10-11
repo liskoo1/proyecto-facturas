@@ -84,7 +84,7 @@ Uso:
 
 Licencia
 
-Este proyecto se distribuye bajo la Licencia MIT.
+Este proyecto se distribuye bajo la Licencia MIT
 
 Contribución:
 
