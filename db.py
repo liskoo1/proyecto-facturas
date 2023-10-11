@@ -6,7 +6,7 @@ import tkinter as tk
 
 class Db:
     def __init__(self) -> None:
-        self.connect =  mysql.connector.connect(user = "root",password = "ktmexc200",host = "localhost", database = "tienda")
+        self.connect =  mysql.connector.connect(user = "root",password = "",host = "localhost", database = "tienda")
         self.cursor = self.connect.cursor()
 
     def insert_suplier_db(self,name, cif, category,address, phone, email):
