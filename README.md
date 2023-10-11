@@ -76,11 +76,11 @@ wheel                  0.38.4
 
 
 Uso: 
-
-1 Ejecuta la aplicación con python main.py.
-2 Escanea o carga una imagen de factura.
-3 Utiliza las opciones para gestionar proveedores y artículos en tu inventario.
-4 Consulta, modifica o borra datos según sea necesario.
+1 Abre el archibo db.py y delete.py e introduce o modifica los datos para conectarte a tu base de datos.
+2 Ejecuta la aplicación con python main.py.
+3 Escanea o carga una imagen de factura.
+4 Utiliza las opciones para gestionar proveedores y artículos en tu inventario.
+5 Consulta, modifica o borra datos según sea necesario.
 
 Licencia
 
